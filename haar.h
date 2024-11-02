@@ -33,9 +33,10 @@ void createIntegralImage(const cv::Mat& input, cv::Mat& integralImage) {
     CV_Assert(input.type() == CV_8UC1);
     cv::integral(input, integralImage, CV_32S);
 }
-//Chỉnh hàm detectFace, thêm input là integralImage tính bằng OpenCV
+//Tách thành 2 file haar.c và haar.h, haar.h chỉ chứa data với function prototype, file haar.cpp định nghĩa chi tiết hàm (Fat)
+//Chỉnh hàm detectFace, thêm input là integralImage tính bằng OpenCV (Fat)
 int detectFace(int newPixel, int newPixelCol, int stage) {
-    //Bỏ từ dòng 39 tới 55 do lặp lại integral image
+    //Bỏ từ dòng 39 tới 55 do lặp lại integral image (Fat)
     int oldestValue = lineBuffer[0][newPixelCol];
     for (int row = 0; row < WIN_WIDTH - 1; row++) {
         colBuffer[row] = lineBuffer[row][newPixelCol];
@@ -53,7 +54,7 @@ int detectFace(int newPixel, int newPixelCol, int stage) {
         }
         ii[(WIN_WIDTH * row) + WIN_WIDTH - 1] = ii[(WIN_WIDTH * row) + WIN_WIDTH - 1] + colBuffer[row] - oldestInRow;
     }
-    //Chuyển đổi input integralImage về mảng một chiều
+    //Chuyển đổi input integralImage về mảng một chiều (Fat)
     //
     //
     //
