@@ -78,6 +78,7 @@ void processImageForFaceDetection(cv::Mat& inputImage) {
 
 
 void detectAndDrawFace(cv::Mat& colorImage, int windowWidth) {
+    //Chuyển ảnh grayscale và tính integralImage có thể để thành hàm riêng, chuyển xuống hàm scanImageWithVariableWindow để tránh lặp lại.
     cv::Mat grayscaleImage;
     cv::cvtColor(colorImage, grayscaleImage, cv::COLOR_BGR2GRAY);
     cv::Mat integralImage;
