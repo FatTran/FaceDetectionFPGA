@@ -33,11 +33,10 @@ void createIntegralImage(const cv::Mat& input, cv::Mat& integralImage) {
     CV_Assert(input.type() == CV_8UC1);
     cv::integral(input, integralImage, CV_32S);
 }
-
+//Chỉnh hàm detectFace, thêm input là integralImage tính bằng OpenCV
 int detectFace(int newPixel, int newPixelCol, int stage) {
+    //Bỏ từ dòng 39 tới 55 do lặp lại integral image
     int oldestValue = lineBuffer[0][newPixelCol];
-
-
     for (int row = 0; row < WIN_WIDTH - 1; row++) {
         colBuffer[row] = lineBuffer[row][newPixelCol];
         lineBuffer[row][newPixelCol] = lineBuffer[row + 1][newPixelCol] - oldestValue;
@@ -54,7 +53,10 @@ int detectFace(int newPixel, int newPixelCol, int stage) {
         }
         ii[(WIN_WIDTH * row) + WIN_WIDTH - 1] = ii[(WIN_WIDTH * row) + WIN_WIDTH - 1] + colBuffer[row] - oldestInRow;
     }
-
+    //Chuyển đổi input integralImage về mảng một chiều
+    //
+    //
+    //
     float stageTmp = 0.0;
     int rectsUsed = 0;
 
