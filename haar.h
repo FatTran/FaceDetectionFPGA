@@ -11,8 +11,8 @@
 #define TOTAL_RECT 6383
 
 
-static const int height = 24;
-static const int width = 24;
+static int win_height = 24;
+static int win_width = 24;
 static const int maxStageSize = 211;
 static const int stageNum = 25;
 static const int INITIAL_WIN_WIDTH = 24;
@@ -48,10 +48,10 @@ static const float stageRects[6383][5] = { {6.0, 4.0, 12.0, 9.0, -1.0}, {6.0, 7.
 
 void preProcessing(cv::Mat& inputImage, cv::Mat& outputImage);
 void convertToGrayscale(const cv::Mat& rgbImage, cv::Mat& grayscaleImage);
-void createIntegralImage(const cv::Mat& input, cv::Mat& integralImage);
+void createIntegralImage(const cv::Mat& input, cv::Mat& integralImage, cv::Mat& SQintegralImage);
 //void evaluateRect(cv::Mat integralImage, int rectIndex, int& nodeSum);
 //void evaluateNode(cv::Mat integralImage, int nodeIndex, int& stageSum);
 //void evaluateStage(Point p,cv::Mat integralImage, int stageIndex);
-bool cascadeClassifier(Point p, int* ii, int iiWidth, int iiHeight, float factor);
+int cascadeClassifier(Point p, int* ii, int* iiSq, int iiWidth, int iiHeight, int iiSqWidth, int iiSqHeight, float factor);
 void detectFace(cv::Mat& inputImage, float scaleFactor);
 
