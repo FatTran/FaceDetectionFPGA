@@ -1,16 +1,41 @@
+#pragma once
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <vector>
 #include <stdint.h>
 
 #define WIN_WIDTH 24
-#define TOTAL_STAGES 25
 #define WIN_HEIGHT 24
+#define TOTAL_STAGE 25
+#define TOTAL_NODE 2913
+#define TOTAL_RECT 6383
 
-static const int height = 24;
-static const int width = 24;
+
+static int win_height = 24;
+static int win_width = 24;
 static const int maxStageSize = 211;
 static const int stageNum = 25;
+static const int INITIAL_WIN_WIDTH = 24;
+static const int MAX_SCALE = 10;
+
+typedef struct Point {
+	int x;
+	int y;
+}Point;
+
+typedef struct Rect {
+	int x;
+	int y;
+	int w;
+	int h;
+	float weight;
+}Rect;
+
+typedef struct Size {
+	int w;
+	int h;
+}Size;
+
 
 static const int stageOrga[25] = { 9, 16, 27, 32, 52, 53, 62, 72, 83, 91, 99, 115, 127, 135, 136, 137, 159, 155, 169, 196, 197, 181, 199, 211, 200 };
 
@@ -24,126 +49,16 @@ static const int8_t stageRects[6383][5] = { {6.0, 4.0, 12.0, 9.0, -1.0}, {6.0, 7
 
 
 
-void convertToGrayscale(const cv::Mat& colorImage, cv::Mat& grayscaleImage) {
-    cv::cvtColor(colorImage, grayscaleImage, cv::COLOR_BGR2GRAY);
-}
+void preProcessing(cv::Mat& inputImage, cv::Mat& outputImage);
+void convertToGrayscale(const cv::Mat& rgbImage, cv::Mat& grayscaleImage);
+void createIntegralImage(const cv::Mat& input, cv::Mat& integralImage, cv::Mat& SQintegralImage);
+//void evaluateRect(cv::Mat integralImage, int rectIndex, int& nodeSum);
+//void evaluateNode(cv::Mat integralImage, int nodeIndex, int& stageSum);
+//void evaluateStage(Point p,cv::Mat integralImage, int stageIndex);
+int cascadeClassifier(Point p, int* ii, int* iiSq, int iiWidth, int iiHeight, int iiSqWidth, int iiSqHeight, float factor);
+void Mat2Array(cv::Mat inputMat, int*& outputArray);
+void groupBoundingBoxes(std::vector<cv::Rect>& rectList, int groupThreshold, double eps);
+void detectFace(cv::Mat& inputImage, float scaleFactor);
 
-void calculateIntegralImage(const cv::Mat& grayscaleImage, std::vector<int>& integralImage) {
-    cv::Mat integralImageMat;
-    cv::integral(grayscaleImage, integralImageMat, CV_32S);
-
-    integralImage.resize(integralImageMat.total());
-    std::memcpy(integralImage.data(), integralImageMat.data, integralImageMat.total() * sizeof(int));
-}
-bool ClassifierCascade(int x, int y, int stage, const std::vector<int>& integralImage, int imageWidth) {
-    float stageSum = 0.0;
-    int rectsUsed = stage * 3;
-
-    if (stage < 0 || stage >= TOTAL_STAGES) {
-        return false;
-    }
-
-    float stageThresh = stageThresholds[stage];
-    const float* currentStageNodes = &stageNodes[stage * 3];
-    const int8_t(*currentStageRects)[5] = reinterpret_cast<const int8_t(*)[5]>(&stageRects[rectsUsed * 5]);
-
-    std::cout << "Stage " << stage << " threshold: " << stageThresh << std::endl;
-
-    for (int nodeIdx = 0; nodeIdx < 3; nodeIdx++) {
-        float nodeThresh = currentStageNodes[3 * nodeIdx];
-        float leftValue = currentStageNodes[(3 * nodeIdx) + 1];
-        float rightValue = currentStageNodes[(3 * nodeIdx) + 2];
-        int haarSum = 0;
-
-        for (int rectIdx = 0; rectIdx < 3; rectIdx++) {
-            int currentIndex = rectsUsed + rectIdx;
-            int rectWidth = currentStageRects[rectIdx][2];
-            int rectHeight = currentStageRects[rectIdx][3];
-            int xPos = x + currentStageRects[rectIdx][0];
-            int yPos = y + currentStageRects[rectIdx][1];
-            int weight = currentStageRects[rectIdx][4];
-
-            int coordTopLeft = (yPos * imageWidth) + xPos;
-            int coordTopRight = coordTopLeft + rectWidth;
-            int coordBottomLeft = coordTopLeft + (rectHeight * imageWidth);
-            int coordBottomRight = coordBottomLeft + rectWidth;
-
-            int rectSum = integralImage[coordBottomRight]
-                - (coordTopRight >= 0 ? integralImage[coordTopRight] : 0)
-                - (coordBottomLeft >= 0 ? integralImage[coordBottomLeft] : 0)
-                + (coordTopLeft >= 0 ? integralImage[coordTopLeft] : 0);
-
-            haarSum += rectSum * weight;
-
-           
-            std::cout << "  Rect " << rectIdx << ": sum = " << rectSum << ", weight = " << weight << ", haarSum = " << haarSum << std::endl;
-        }
-
-        rectsUsed += 3;
-
-        if (haarSum < nodeThresh) {
-            stageSum += leftValue;
-        }
-        else {
-            stageSum += rightValue;
-        }
-
-       
-        std::cout << "  Node " << nodeIdx << ": haarSum = " << haarSum << ", nodeThresh = " << nodeThresh << ", stageSum = " << stageSum << std::endl;
-    }
-
-   
-    std::cout << "Stage " << stage << ": stageSum = " << stageSum << ", stageThresh = " << stageThresh << std::endl;
-
-    return (stageSum >= stageThresh);
-}
-
-void detectFace(cv::Mat& colorImage, const std::vector<int>& integralImage) {
-    bool detectedFace = false;
-    cv::Rect faceRect;
-
-    for (int y = 0; y <= colorImage.rows - WIN_HEIGHT; y += 1) {
-        for (int x = 0; x <= colorImage.cols - WIN_WIDTH; x += 1) {
-            bool passAllStages = true;
-
-            for (int stage = 0; stage < TOTAL_STAGES; stage++) {
-                if (!ClassifierCascade(x, y, stage, integralImage, colorImage.cols)) {
-                    passAllStages = false;
-                    break;
-                }
-            }
-
-            if (passAllStages) {
-                detectedFace = true;
-                faceRect = cv::Rect(x, y, WIN_WIDTH, WIN_HEIGHT);
-                break;
-            }
-        }
-        if (detectedFace) break;
-    }
-
-    if (detectedFace) {
-        cv::rectangle(colorImage, faceRect, cv::Scalar(0, 255, 0), 2);
-        std::cout << "Face detected at: (" << faceRect.x << ", " << faceRect.y << ")" << std::endl;
-    }
-    else {
-        std::cout << "No face detected." << std::endl;
-    }
-}
-
-void processImage(cv::Mat& inputImage) {
-    if (inputImage.empty()) {
-        std::cerr << "Empty image." << std::endl;
-        return;
-    }
-
-    cv::Mat grayscaleImage;
-    convertToGrayscale(inputImage, grayscaleImage);
-
-    std::vector<int> integralImage;
-    calculateIntegralImage(grayscaleImage, integralImage);
-
-    detectFace(inputImage, integralImage);
-}
 
 
