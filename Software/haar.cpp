@@ -226,7 +226,9 @@ void detectFace(cv::Mat& inputImage, float scaleFactor) {
 
         factor *= scaleFactor;
         delete[] ii;
+        ii = nullptr;
         delete[] iiSq;
+        iiSq = nullptr;
     }
 
     
