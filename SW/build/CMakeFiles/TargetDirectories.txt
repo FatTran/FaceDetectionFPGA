@@ -1,0 +1,3 @@
+/d/UTE/Advanced_Topic/SW/build/CMakeFiles/FaceDetection.dir
+/d/UTE/Advanced_Topic/SW/build/CMakeFiles/edit_cache.dir
+/d/UTE/Advanced_Topic/SW/build/CMakeFiles/rebuild_cache.dir

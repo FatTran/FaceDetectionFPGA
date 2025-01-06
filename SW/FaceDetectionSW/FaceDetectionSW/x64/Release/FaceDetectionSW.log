@@ -1,0 +1,30 @@
+﻿  haar.cpp
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(86,9): warning C4552: '+': result of expression not used
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,94): warning C4244: 'argument': conversion from 'float' to '_Tp', possible loss of data
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,94): warning C4244:         with
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,94): warning C4244:         [
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,94): warning C4244:             _Tp=int
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,94): warning C4244:         ]
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,73): warning C4244: 'argument': conversion from 'float' to '_Tp', possible loss of data
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,73): warning C4244:         with
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,73): warning C4244:         [
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,73): warning C4244:             _Tp=int
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,73): warning C4244:         ]
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,53): warning C4244: 'argument': conversion from 'float' to '_Tp', possible loss of data
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,53): warning C4244:         with
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,53): warning C4244:         [
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,53): warning C4244:             _Tp=int
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,53): warning C4244:         ]
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,39): warning C4244: 'argument': conversion from 'float' to '_Tp', possible loss of data
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,39): warning C4244:         with
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,39): warning C4244:         [
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,39): warning C4244:             _Tp=int
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(245,39): warning C4244:         ]
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(224,9): warning C4102: 'Preprocessing': unreferenced label
+D:\UTE\Advanced_Topic\SW\FaceDetectionSW\FaceDetectionSW\haar.cpp(236,9): warning C4102: 'DetectFace': unreferenced label
+  Generating code
+  21 of 232 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  FaceDetectionSW.vcxproj -> D:\UTE\Advanced_Topic\SW\FaceDetectionSW\x64\Release\FaceDetectionSW.exe
