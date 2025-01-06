@@ -1,0 +1,413 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+  **** SW Build 5069499 on May 21 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Mon Dec  2 09:37:42 2024
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/Xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'Phat' on host 'desktop-lhbmr94' (Windows NT_amd64 version 10.0) on Mon Dec 02 09:37:42 +0700 2024
+INFO: [HLS 200-10] In directory 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+[2Kvitis_hls> [11C[2Kvitis_hls> s[12C[2Kvitis_hls> so[13C[2Kvitis_hls> sou[14C[2Kvitis_hls> sour[15C[2Kvitis_hls> sourc[16C[2Kvitis_hls> source[17C[2Kvitis_hls> source [18C[2Kvitis_hls> source r[19C[2Kvitis_hls> source ru[20C[2Kvitis_hls> source run[21C[2Kvitis_hls> source run_hls.tcl[29C
+INFO: [HLS 200-1510] Running: open_project -reset rgb2gray.prj 
+INFO: [HLS 200-10] Creating and opening project 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj'.
+INFO: [HLS 200-1510] Running: add_files D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding design file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top rgb2gray 
+INFO: [HLS 200-1510] Running: open_solution -reset sol1 
+INFO: [HLS 200-10] Creating and opening solution 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=true 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -ldflags -L C:/OpenCV-4.4.0/opencv/build/install/x64/mingw/lib -lopencv_imgcodecs440 -lopencv_imgproc440 -lopencv_core440 -lopencv_highgui440 -lopencv_flann440 -lopencv_features2d440 -argv D:/UTE/Advanced_Topic/HW/img/29.jpg 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../rgb2gray_tb.cpp in debug mode
+   Compiling ../../../../rgb2gray.cpp in debug mode
+   Generating csim.exe
+Makefile.rules:349: recipe for target 'csim.exe' failed
+ld.lld: error: undefined symbol: preProcessing(ap_uint<24>*, ap_uint<8>*, int, int)
+>>> referenced by ../../../../rgb2gray_tb.cpp:27
+>>>               obj/rgb2gray_tb.o:(main)
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [csim.exe] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:04; Allocated memory: 0.754 MB.
+4
+[2Kvitis_hls> [11C[2Kvitis_hls> s[12C[2Kvitis_hls> so[13C[2Kvitis_hls> sou[14C[2Kvitis_hls> sour[15C[2Kvitis_hls> sourc[16C[2Kvitis_hls> source[17C[2Kvitis_hls> sourceu[18C[2Kvitis_hls> source[17C[2Kvitis_hls> source [18C[2Kvitis_hls> source r[19C[2Kvitis_hls> source ru[20C[2Kvitis_hls> source run[21C[2Kvitis_hls> source run_hls.tcl[29C
+INFO: [HLS 200-1510] Running: source run_hls.tcl
+INFO: [HLS 200-1510] Running: open_project -reset rgb2gray.prj 
+INFO: [HLS 200-10] Opening and resetting project 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj'.
+INFO: [HLS 200-1510] Running: add_files D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding design file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top rgb2gray 
+INFO: [HLS 200-1510] Running: open_solution -reset sol1 
+INFO: [HLS 200-10] Creating and opening solution 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=true 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -ldflags -L C:/OpenCV-4.4.0/opencv/build/install/x64/mingw/lib -lopencv_imgcodecs440 -lopencv_imgproc440 -lopencv_core440 -lopencv_highgui440 -lopencv_flann440 -lopencv_features2d440 -argv D:/UTE/Advanced_Topic/HW/img/29.jpg 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../rgb2gray_tb.cpp in debug mode
+   Compiling ../../../../rgb2gray.cpp in debug mode
+   Generating csim.exe
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:03; Allocated memory: 0.258 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.065 seconds; current allocated memory: 282.215 MB.
+INFO: [HLS 200-10] Analyzing design file 'rgb2gray.cpp' ... 
+WARNING: [HLS 207-5292] unused parameter 'src' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:517:30)
+WARNING: [HLS 207-5292] unused parameter '_data' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:528:30)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:541:14)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:552:20)
+WARNING: [HLS 207-5292] unused parameter 'stride' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1036:41)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1224:102)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1530:34)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 3.223 seconds; current allocated memory: 284.465 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 198 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 46 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 57 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 57 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 57 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 56 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 56 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 69 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 72 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 214-386] A depth specification is required for MAXI interface port 'input' for cosimulation. (rgb2gray.cpp:10:0)
+WARNING: [HLS 214-386] A depth specification is required for MAXI interface port 'output' for cosimulation. (rgb2gray.cpp:10:0)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'VITIS_LOOP_20_1'(rgb2gray.cpp:20:22) has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (rgb2gray.cpp:20:22)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 7.133 seconds; current allocated memory: 285.684 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.006 seconds; current allocated memory: 285.684 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.109 seconds; current allocated memory: 290.090 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.034 seconds; current allocated memory: 291.602 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.071 seconds; current allocated memory: 312.980 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_20_1'(rgb2gray.cpp:20:22) and 'VITIS_LOOP_21_2'(rgb2gray.cpp:21:26) in function 'rgb2gray' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_20_1' (rgb2gray.cpp:20:22) in function 'rgb2gray'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.085 seconds; current allocated memory: 316.129 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rgb2gray' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln34_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln34) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_20_1_VITIS_LOOP_21_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 22, loop 'VITIS_LOOP_20_1_VITIS_LOOP_21_2'
+WARNING: [HLS 200-871] Estimated clock period (7.396 ns) exceeds the target (target clock period: 10.000 ns, clock uncertainty: 2.700 ns, effective delay budget: 7.300 ns).
+Resolution: For help on HLS 200-871 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' consists of the following:
+	'load' operation 31 bit ('j_load', rgb2gray.cpp:21) on local variable 'j', rgb2gray.cpp:21 [29]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln21', rgb2gray.cpp:21) [33]  (2.552 ns)
+	'select' operation 31 bit ('select_ln20', rgb2gray.cpp:20) [36]  (0.733 ns)
+	'add' operation 31 bit ('add_ln21', rgb2gray.cpp:21) [78]  (2.522 ns)
+	'store' operation 0 bit ('j_write_ln21', rgb2gray.cpp:21) of variable 'add_ln21', rgb2gray.cpp:21 on local variable 'j', rgb2gray.cpp:21 [81]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.355 seconds; current allocated memory: 320.164 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.072 seconds; current allocated memory: 321.336 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.084 seconds; current allocated memory: 321.426 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.059 seconds; current allocated memory: 321.508 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' pipeline 'VITIS_LOOP_20_1_VITIS_LOOP_21_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_BREADY' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_5ns_15ns_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_8ns_15ns_16_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_31ns_32s_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_8ns_15_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.311 seconds; current allocated memory: 323.879 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/rows' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/cols' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'rgb2gray' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'rows', 'cols' and 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [RTGEN 206-100] Bundling port 'input_r' and 'output_r' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_63_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_64_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rgb2gray'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.464 seconds; current allocated memory: 328.508 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.731 seconds; current allocated memory: 331.648 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.12 seconds; current allocated memory: 337.746 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for rgb2gray.
+INFO: [VLOG 209-307] Generating Verilog RTL for rgb2gray.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 135.22 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:14; Allocated memory: 55.535 MB.
+INFO: [HLS 200-1510] Running: cosim_design -ldflags -L C:/OpenCV-4.4.0/opencv/build/install/x64/mingw/lib -lopencv_imgcodecs440 -lopencv_imgproc440 -lopencv_core440 -lopencv_highgui440 -lopencv_flann440 -lopencv_features2d440 -argv D:/UTE/Advanced_Topic/HW/img/29.jpg 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "D:/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++"
+   Compiling rgb2gray_tb.cpp_pre.cpp.tb.cpp
+   Compiling rgb2gray.cpp_pre.cpp.tb.cpp
+   Compiling apatb_rgb2gray.cpp
+   Compiling apatb_rgb2gray_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+ERROR: A depth specification is required for interface port 'gmem0' for cosimulation.
+ERROR: [COSIM 212-359] Aborting co-simulation: C TB simulation failed, nonzero return value '1'.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:00:09; Allocated memory: 16.480 MB.
+command 'ap_source' returned error code
+[2Kvitis_hls> [11C
+invalid command name "sourcsourc"
+[2Kvitis_hls> [11C
+[2Kvitis_hls> [11C
+[2Kvitis_hls> [11C
+[2Kvitis_hls> [11C[2Kvitis_hls> s[12C[2Kvitis_hls> so[13C[2Kvitis_hls> sou[14C[2Kvitis_hls> sour[15C[2Kvitis_hls> sourc[16C[2Kvitis_hls> source[17C[2Kvitis_hls> source [18C[2Kvitis_hls> source r[19C[2Kvitis_hls> source ru[20C[2Kvitis_hls> source run[21C[2Kvitis_hls> source run_hls.tcl[29C
+INFO: [HLS 200-1510] Running: source run_hls.tcl
+INFO: [HLS 200-1510] Running: open_project -reset rgb2gray.prj 
+INFO: [HLS 200-10] Opening and resetting project 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj'.
+INFO: [HLS 200-1510] Running: add_files D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding design file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp -cflags -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 -csimflags -DALLOW_EMPTY_HLS_STREAM_READS -I C:/OpenCV-4.4.0/opencv/build/install/include -I D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/config -IC:/Vitis_Libraries/vision/L1/include -I ./ -D__SDSVHLS__ -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top rgb2gray 
+INFO: [HLS 200-1510] Running: open_solution -reset sol1 
+INFO: [HLS 200-10] Creating and opening solution 'D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=true 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -ldflags -L C:/OpenCV-4.4.0/opencv/build/install/x64/mingw/lib -lopencv_imgcodecs440 -lopencv_imgproc440 -lopencv_core440 -lopencv_highgui440 -lopencv_flann440 -lopencv_features2d440 -argv D:/UTE/Advanced_Topic/HW/img/29.jpg 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../rgb2gray_tb.cpp in debug mode
+   Compiling ../../../../rgb2gray.cpp in debug mode
+   Generating csim.exe
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:03; Allocated memory: 0.098 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.088 seconds; current allocated memory: 377.133 MB.
+INFO: [HLS 200-10] Analyzing design file 'rgb2gray.cpp' ... 
+WARNING: [HLS 207-5292] unused parameter 'src' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:517:30)
+WARNING: [HLS 207-5292] unused parameter '_data' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:528:30)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:541:14)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:552:20)
+WARNING: [HLS 207-5292] unused parameter 'stride' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1036:41)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1224:102)
+WARNING: [HLS 207-5292] unused parameter 'index' (C:/Vitis_Libraries/vision/L1/include\common/xf_structs.hpp:1530:34)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 3.271 seconds; current allocated memory: 377.133 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 198 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 46 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 60 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 59 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 59 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 58 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 58 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 69 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 72 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: D:/UTE/Advanced_Topic/HW/RGB2GrayCustom/rgb2gray.prj/sol1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'VITIS_LOOP_20_1'(rgb2gray.cpp:20:22) has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (rgb2gray.cpp:20:22)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 6.901 seconds; current allocated memory: 377.367 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.001 seconds; current allocated memory: 377.367 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.051 seconds; current allocated memory: 377.367 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.024 seconds; current allocated memory: 377.367 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.064 seconds; current allocated memory: 395.301 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_20_1'(rgb2gray.cpp:20:22) and 'VITIS_LOOP_21_2'(rgb2gray.cpp:21:26) in function 'rgb2gray' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_20_1' (rgb2gray.cpp:20:22) in function 'rgb2gray'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.065 seconds; current allocated memory: 396.148 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rgb2gray' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln34_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln34) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_20_1_VITIS_LOOP_21_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 22, loop 'VITIS_LOOP_20_1_VITIS_LOOP_21_2'
+WARNING: [HLS 200-871] Estimated clock period (7.396 ns) exceeds the target (target clock period: 10.000 ns, clock uncertainty: 2.700 ns, effective delay budget: 7.300 ns).
+Resolution: For help on HLS 200-871 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' consists of the following:
+	'load' operation 31 bit ('j_load', rgb2gray.cpp:21) on local variable 'j', rgb2gray.cpp:21 [29]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln21', rgb2gray.cpp:21) [33]  (2.552 ns)
+	'select' operation 31 bit ('select_ln20', rgb2gray.cpp:20) [36]  (0.733 ns)
+	'add' operation 31 bit ('add_ln21', rgb2gray.cpp:21) [78]  (2.522 ns)
+	'store' operation 0 bit ('j_write_ln21', rgb2gray.cpp:21) of variable 'add_ln21', rgb2gray.cpp:21 on local variable 'j', rgb2gray.cpp:21 [81]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.269 seconds; current allocated memory: 396.164 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.078 seconds; current allocated memory: 396.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.079 seconds; current allocated memory: 396.238 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 396.238 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2' pipeline 'VITIS_LOOP_20_1_VITIS_LOOP_21_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2/m_axi_gmem1_BREADY' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_5ns_15ns_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_8ns_15ns_16_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_31ns_32s_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_8ns_15_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rgb2gray_Pipeline_VITIS_LOOP_20_1_VITIS_LOOP_21_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.183 seconds; current allocated memory: 396.316 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/rows' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/cols' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'rgb2gray' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'rows', 'cols' and 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [RTGEN 206-100] Bundling port 'input_r' and 'output_r' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_63_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_64_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rgb2gray'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.274 seconds; current allocated memory: 398.250 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.453 seconds; current allocated memory: 401.012 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.081 seconds; current allocated memory: 406.750 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for rgb2gray.
+INFO: [VLOG 209-307] Generating Verilog RTL for rgb2gray.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 135.22 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:13; Allocated memory: 29.617 MB.
+INFO: [HLS 200-1510] Running: cosim_design -ldflags -L C:/OpenCV-4.4.0/opencv/build/install/x64/mingw/lib -lopencv_imgcodecs440 -lopencv_imgproc440 -lopencv_core440 -lopencv_highgui440 -lopencv_flann440 -lopencv_features2d440 -argv D:/UTE/Advanced_Topic/HW/img/29.jpg 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "D:/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++"
+   Compiling rgb2gray_tb.cpp_pre.cpp.tb.cpp
+   Compiling rgb2gray.cpp_pre.cpp.tb.cpp
+   Compiling apatb_rgb2gray.cpp
+   Compiling apatb_rgb2gray_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+ERROR: System received a signal named SIGSEGV and the program has to stop immediately!
+This signal was generated when a program tries to read or write outside the memory that is allocated for it, or to write memory that can only be read.
+Possible cause of this problem may be:
+  1) Missing depth information for one or more pointers to arrays in the interface;
+  2) Insufficient depth setting for array argument(s);
+  3) Excessive depth setting for array argument(s), that exceeds the maximum virtual memory size for the process;
+  4) Null pointer etc.
+Current execution stopped during CodeState = ENTER_WRAPC.
+You can search CodeState variable name in apatb*.cpp file under ./sim/wrapc dir to locate the position.
+
+ERROR: [COSIM 212-360] Aborting co-simulation: C TB simulation failed.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:00:08; Allocated memory: 14.453 MB.
+command 'ap_source' returned error code
+[2Kvitis_hls> [11C
+INFO: [HLS 200-112] Total CPU user time: 4 seconds. Total CPU system time: 1 seconds. Total elapsed time: 718.174 seconds; peak allocated memory: 421.203 MB.
